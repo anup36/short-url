@@ -1,31 +1,23 @@
-const { sequelize, Sequelize } = require('../../config/sequelize');
+const mongoose = require('mongoose');
 
-const Url = sequelize.define('Url', {
+const { Schema, model } = mongoose;
+
+const opts = {
+  timestamps: true,
+};
+
+const Url = new Schema({
   id: {
-    type: Sequelize.INTEGER,
-    autoIncrement: true,
-    primaryKey: true,
+    type: Number,
   },
   longUrl: {
-    type: Sequelize.STRING,
-    allowNull: false,
+    type: String,
   },
   numLogs: {
-    type: Sequelize.INTEGER,
-    allowNull: false,
-    defaultValue: 0,
+    type: Number,
   },
-});
+}, opts);
 
-module.exports = Url;
+const urlSchema = model('Url', Url);
 
-// urlSchema.pre('save', function (next) {
-//   var doc = this;
-//   counter.findByIdAndUpdate({ _id: 'url_count' }, { $inc: { seq: 1 } }, function (error, counter) {
-//     if (error)
-//       return next(error);
-//     doc.created_at = new Date();
-//     doc._id = counter.seq;
-//     next();
-//   });
-// });
+module.exports = urlSchema;

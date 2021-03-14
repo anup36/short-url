@@ -1,6 +1,6 @@
-## How to use this code?
+## Installation
 
-1. Make sure you have the latest stable version of Node.js installed
+1.  Node.js installed
 
 ```
 $ sudo npm cache clean -f

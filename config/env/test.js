@@ -1,9 +1,7 @@
 module.exports = {
-  mysql: {
+  mongodb: {
     host: 'localhost',
-    port: 3306,
+    port: 27017,
     database: 'shortener_test',
-    username: 'root',
-    password: 'root',
   },
 };
